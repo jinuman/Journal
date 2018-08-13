@@ -54,14 +54,62 @@
 		36577DC62121AE1500C7A645 /* Journal */ = {
 			isa = PBXGroup;
 			children = (
-				36577DC72121AE1500C7A645 /* AppDelegate.swift */,
-				36577DC92121AE1500C7A645 /* ViewController.swift */,
-				36577DCB2121AE1500C7A645 /* Main.storyboard */,
-				36577DCE2121AE1600C7A645 /* Assets.xcassets */,
-				36577DD02121AE1600C7A645 /* LaunchScreen.storyboard */,
-				36577DD32121AE1600C7A645 /* Info.plist */,
+				36577DD92121B1F700C7A645 /* Sources */,
+				36577DDB2121B1FE00C7A645 /* Storyboards */,
+				36577DDA2121B1FC00C7A645 /* Resources */,
 			);
 			path = Journal;
+			sourceTree = "<group>";
+		};
+		36577DD92121B1F700C7A645 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				36577DDC2121B22D00C7A645 /* Models */,
+				36577DDF2121B26D00C7A645 /* Controllers */,
+				36577DDD2121B23C00C7A645 /* Shared */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		36577DDA2121B1FC00C7A645 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				36577DD32121AE1600C7A645 /* Info.plist */,
+				36577DCE2121AE1600C7A645 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		36577DDB2121B1FE00C7A645 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				36577DD02121AE1600C7A645 /* LaunchScreen.storyboard */,
+				36577DCB2121AE1500C7A645 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		36577DDC2121B22D00C7A645 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		36577DDD2121B23C00C7A645 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				36577DC72121AE1500C7A645 /* AppDelegate.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		36577DDF2121B26D00C7A645 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				36577DC92121AE1500C7A645 /* ViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,7 +329,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Journal/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Journal/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -298,7 +346,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Journal/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Journal/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
