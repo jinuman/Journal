@@ -20,4 +20,20 @@ class JournalTests: XCTestCase {
         // Verify
         XCTAssertEqual(entry.text, "first test")
     }
+    
+    func testAddEntryToJournal() {
+        // Setup
+        let journal = InMemoryJournal()
+        let newEntry = Entry(id: 1, createdAt: Date(), text: "Hello")
+        
+        // Run
+        journal.add(newEntry)
+        
+        // Verify
+        let entryInJournal: Entry? = journal.entry(with: 1)
+        
+        XCTAssertEqual(entryInJournal, .some(newEntry))
+        XCTAssertTrue(entryInJournal === newEntry)
+        XCTAssertTrue(entryInJournal?.isIdentical(to: newEntry) == true)
+    }
 }
