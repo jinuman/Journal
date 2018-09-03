@@ -28,7 +28,7 @@ class JournalTests: XCTestCase {
         
         // Verify
 //        XCTAssertEqual(entry.text, "오늘 일기")
-        expect(entry.text).to(equal("오늘 일기"))
+        expect(entry.text) == "오늘 일기"
     }
     
     func testAddEntryToJournal() {
@@ -45,9 +45,9 @@ class JournalTests: XCTestCase {
 //        XCTAssertEqual(entryInJournal, .some(newEntry))
 //        XCTAssertTrue(entryInJournal === newEntry)
 //        XCTAssertTrue(entryInJournal?.isIdentical(to: newEntry) == true)
-        expect(entryInJournal).to(equal(newEntry))
-        expect(entryInJournal).to(beIdenticalTo(newEntry))
-        expect(entryInJournal?.isIdentical(to: newEntry)).to(beTruthy())
+        expect(entryInJournal) == newEntry
+        expect(entryInJournal) === newEntry
+        expect(entryInJournal?.isIdentical(to: newEntry)).to(beTrue())
     }
     
     func testGetEntryWithId() {
@@ -61,7 +61,7 @@ class JournalTests: XCTestCase {
         // Verify
 //        XCTAssertEqual(entry, .some(oldEntry))
 //        XCTAssertTrue(entry?.isIdentical(to: oldEntry) == true)
-        expect(entry).to(equal(oldEntry))
+        expect(entry) == oldEntry
         expect(entry?.isIdentical(to: oldEntry)).to(beTruthy())
     }
     
