@@ -11,9 +11,9 @@ import Nimble
 @testable import Journal
 
 extension Entry {
-    static var dayBeforeYesterday: Entry { return Entry(id: 1, createdAt: Date.distantPast, text: "그저께 일기") }
-    static var yesterDay: Entry { return Entry(id: 2, createdAt: Date(), text: "어제 일기") }
-    static var today: Entry { return Entry(id: 3, createdAt: Date.distantFuture, text: "오늘 일기") }
+    static var dayBeforeYesterday: Entry { return Entry(id: UUID(), createdAt: Date.distantPast, text: "그저께 일기") }
+    static var yesterDay: Entry { return Entry(id: UUID(), createdAt: Date(), text: "어제 일기") }
+    static var today: Entry { return Entry(id: UUID(), createdAt: Date.distantFuture, text: "오늘 일기") }
 }
 
 class JournalTests: XCTestCase {
