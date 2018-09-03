@@ -152,4 +152,15 @@ class JournalTests: XCTestCase {
         expect(entries.count).to(equal(3))
         expect(entries).to(equal([today, yesterDay, dayBeforeYesterday]))
     }
+    
+    func testJournalReturnsEmptyWhenMaxIsNegativeNumber() {
+        // Setup
+        let journal = InMemoryJournal()
+        
+        // Run
+        let entries = journal.recentEntries(max: -10)
+        
+        // Verify
+        expect(entries) == []
+    }
 }
