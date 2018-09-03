@@ -12,16 +12,15 @@ protocol Journal {
     func add(_ entry: Entry)
     func update(_ entry: Entry)
     func remove(_ entry: Entry)
-    func entry(with id: Int) -> Entry?
+    func entry(with id: UUID) -> Entry?
     func recentEntries(max: Int) -> [Entry]
 }
 
 class InMemoryJournal: Journal {
-//    private var entries: [Int: Entry] = [:]
-    private var entries: [Int: Entry]
+    private var entries: [UUID: Entry]
     
-    init(entries: [Entry] = []) {
-        var result: [Int: Entry] = [:]
+    init(entries: [Entry] = []) {   // 인스턴스 생성시 파라미터를 줘도 되고 안줘도 되게 하기위해
+        var result: [UUID: Entry] = [:]
         
         entries.forEach { entry in
             result[entry.id] = entry
@@ -42,7 +41,7 @@ class InMemoryJournal: Journal {
         entries[entry.id] = nil
     }
     
-    func entry(with id: Int) -> Entry? {
+    func entry(with id: UUID) -> Entry? {
         return entries[id]
     }
     
@@ -50,7 +49,7 @@ class InMemoryJournal: Journal {
         let result = entries
             .values
             .sorted { $0.createdAt > $1.createdAt  }
-            .prefix(max)
+            .prefix(max)    // max 값까지 자른다
         
         return Array(result)
     }
