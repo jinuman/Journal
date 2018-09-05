@@ -19,18 +19,6 @@ extension Entry {
 class JournalTests: XCTestCase {
     var newEntry: Entry!
     
-    func testEditEntryText() {
-        // Setup
-        let entry = Entry.today
-        
-        // Run
-        entry.text = "오늘 일기"
-        
-        // Verify
-//        XCTAssertEqual(entry.text, "오늘 일기")
-        expect(entry.text) == "오늘 일기"
-    }
-    
     func testAddEntryToJournal() {
         // Setup
         let journal = InMemoryJournal()

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		34F1C0DBC8E36BCB7A7D7814 /* Pods_Journal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A55C24322FFA4B40E072B1 /* Pods_Journal.framework */; };
+		36348FE8213FD95600136A0D /* EntryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36348FE7213FD95600136A0D /* EntryTests.swift */; };
 		36577DC82121AE1500C7A645 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36577DC72121AE1500C7A645 /* AppDelegate.swift */; };
 		36577DCA2121AE1500C7A645 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36577DC92121AE1500C7A645 /* ViewController.swift */; };
 		36577DCD2121AE1500C7A645 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36577DCB2121AE1500C7A645 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 		07E727C28B20E712DB580B35 /* Pods-Journal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Journal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Journal/Pods-Journal.debug.xcconfig"; sourceTree = "<group>"; };
 		11A55C24322FFA4B40E072B1 /* Pods_Journal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Journal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		35BC1B1FAF52C862BD1089D5 /* Pods-Journal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Journal.release.xcconfig"; path = "Pods/Target Support Files/Pods-Journal/Pods-Journal.release.xcconfig"; sourceTree = "<group>"; };
+		36348FE7213FD95600136A0D /* EntryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTests.swift; sourceTree = "<group>"; };
 		36577DC42121AE1500C7A645 /* Journal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Journal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36577DC72121AE1500C7A645 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36577DC92121AE1500C7A645 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 			children = (
 				36C5395721393E5800872E2B /* JournalTests.swift */,
 				36C5395921393E5800872E2B /* Info.plist */,
+				36348FE7213FD95600136A0D /* EntryTests.swift */,
 			);
 			path = JournalTests;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36348FE8213FD95600136A0D /* EntryTests.swift in Sources */,
 				36C5395821393E5800872E2B /* JournalTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
