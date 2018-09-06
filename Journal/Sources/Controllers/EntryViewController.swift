@@ -32,7 +32,7 @@ class EntryViewController: UIViewController {
         let entry: Entry = Entry(text: textView.text)
         journal.add(entry)
         
-        print("Entry 개수: ", journal.recentEntries(max: Int.max).count)
+        print("Entry 개수: ", journal.numberOfEntries)
     }
 }
 

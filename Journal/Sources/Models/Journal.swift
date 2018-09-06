@@ -9,6 +9,8 @@
 import Foundation
 
 protocol Journal {
+    var numberOfEntries: Int { get }
+    
     func add(_ entry: Entry)
     func update(_ entry: Entry)
     func remove(_ entry: Entry)
@@ -27,6 +29,10 @@ class InMemoryJournal: Journal {
         }
         
         self.entries = result
+    }
+    
+    var numberOfEntries: Int {
+        return entries.count  
     }
     
     func add(_ entry: Entry) {
