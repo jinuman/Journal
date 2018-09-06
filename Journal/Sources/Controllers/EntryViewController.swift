@@ -27,12 +27,18 @@ class EntryViewController: UIViewController {
         dateLabel.text = DateFormatter.entryDateFormatter.string(from: Date())
         textView.text = "Journal text test"
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        textView.becomeFirstResponder()
+    }
 
     @IBAction func saveEntry(_ sender: Any) {
         let entry: Entry = Entry(text: textView.text)
         journal.add(entry)
         
-        print("Entry 개수: ", journal.numberOfEntries)
+        textView.isEditable = false
+        textView.resignFirstResponder()
     }
 }
 
