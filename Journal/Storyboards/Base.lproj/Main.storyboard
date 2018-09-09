@@ -67,6 +67,7 @@
                         <outlet property="button" destination="ZPC-cN-Zh9" id="fCi-5M-kR1"/>
                         <outlet property="dateLabel" destination="SA5-Dv-kgk" id="M3M-S7-662"/>
                         <outlet property="textView" destination="uX0-Vh-2fZ" id="Bv5-FY-gAV"/>
+                        <outlet property="textViewBottomConstraint" destination="C4V-oN-K9k" id="6Vn-rP-maS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -70,6 +70,7 @@ class EntryViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var textViewBottomConstraint: NSLayoutConstraint!
     
     let journal: Journal = InMemoryJournal()
     private var editingEntry: Entry?
@@ -105,11 +106,11 @@ class EntryViewController: UIViewController {
         // userInfo[UIKeyboardFrameEndUserInfoKey]: Any as? (NSValue)
         // (NSValue) -> CGRect
         let keyboardHeight = keyboardFrame.cgRectValue.height
-        print("keyboard height: \(keyboardHeight)")
+        textViewBottomConstraint.constant = -keyboardHeight
     }
     
     @objc func keyboardWillHide(_ note: Notification) {
-        
+        textViewBottomConstraint.constant = 0
     }
     
     override func viewDidAppear(_ animated: Bool) {
