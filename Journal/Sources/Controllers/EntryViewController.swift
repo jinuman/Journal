@@ -98,11 +98,18 @@ class EntryViewController: UIViewController {
     }
     
     @objc func keyboardWillShow(_ note: Notification) {
-        print("keyboard up")
+        guard
+            let userInfo = note.userInfo,
+            let keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)
+        else { return }
+        // userInfo[UIKeyboardFrameEndUserInfoKey]: Any as? (NSValue)
+        // (NSValue) -> CGRect
+        let keyboardHeight = keyboardFrame.cgRectValue.height
+        print("keyboard height: \(keyboardHeight)")
     }
     
     @objc func keyboardWillHide(_ note: Notification) {
-        print("keyboard down")
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
