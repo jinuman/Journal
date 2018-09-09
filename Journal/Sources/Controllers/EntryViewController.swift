@@ -86,19 +86,19 @@ class EntryViewController: UIViewController {
         NotificationCenter.default
             .addObserver(
                 self,
-                selector: #selector(keyboardWillShow(_:)),
+                selector: #selector(handleKeyboardAppearance(_:)),
                 name: NSNotification.Name.UIKeyboardWillShow,
                 object: nil)
         
         NotificationCenter.default
             .addObserver(
                 self,
-                selector: #selector(keyboardWillHide(_:)),
+                selector: #selector(handleKeyboardAppearance(_:)),
                 name: NSNotification.Name.UIKeyboardWillHide,
                 object: nil)
     }
     
-    @objc func keyboardWillShow(_ note: Notification) {
+    @objc func handleKeyboardAppearance(_ note: Notification) {
         guard
             let userInfo = note.userInfo,
             let keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as?
@@ -108,7 +108,12 @@ class EntryViewController: UIViewController {
             let curve = (userInfo[UIKeyboardAnimationCurveUserInfoKey] as?
                 UInt)
             else { return }
-        let keyboardHeight = keyboardFrame.cgRectValue.height
+        
+        let isKeyboardWillShow: Bool = note.name ==
+            Notification.Name.UIKeyboardWillShow
+        let keyboardHeight = isKeyboardWillShow
+            ? keyboardFrame.cgRectValue.height
+            : 0
         let animationOption = UIViewAnimationOptions.init(rawValue: curve)
         
         UIView.animate(
@@ -119,27 +124,6 @@ class EntryViewController: UIViewController {
                 self.textViewBottomConstraint.constant = -keyboardHeight
                 self.view.layoutIfNeeded()
             },
-            completion: nil)
-    }
-    
-    @objc func keyboardWillHide(_ note: Notification) {
-        guard
-            let userInfo = note.userInfo,
-            let duration = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as?
-                TimeInterval),
-            let curve = (userInfo[UIKeyboardAnimationCurveUserInfoKey] as?
-                UInt)
-            else { return }
-        let animationOption = UIViewAnimationOptions.init(rawValue: curve)
-        
-        UIView.animate(
-            withDuration:  duration,
-            delay: 0.0,
-            options: animationOption,
-            animations: {
-                self.textViewBottomConstraint.constant = 0
-                self.view.layoutIfNeeded()
-        },
             completion: nil)
     }
     
