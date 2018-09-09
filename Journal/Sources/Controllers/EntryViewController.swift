@@ -101,16 +101,46 @@ class EntryViewController: UIViewController {
     @objc func keyboardWillShow(_ note: Notification) {
         guard
             let userInfo = note.userInfo,
-            let keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)
-        else { return }
-        // userInfo[UIKeyboardFrameEndUserInfoKey]: Any as? (NSValue)
-        // (NSValue) -> CGRect
+            let keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as?
+                NSValue),
+            let duration = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as?
+                TimeInterval),
+            let curve = (userInfo[UIKeyboardAnimationCurveUserInfoKey] as?
+                UInt)
+            else { return }
         let keyboardHeight = keyboardFrame.cgRectValue.height
-        textViewBottomConstraint.constant = -keyboardHeight
+        let animationOption = UIViewAnimationOptions.init(rawValue: curve)
+        
+        UIView.animate(
+            withDuration:  duration,
+            delay: 0.0,
+            options: animationOption,
+            animations: {
+                self.textViewBottomConstraint.constant = -keyboardHeight
+                self.view.layoutIfNeeded()
+            },
+            completion: nil)
     }
     
     @objc func keyboardWillHide(_ note: Notification) {
-        textViewBottomConstraint.constant = 0
+        guard
+            let userInfo = note.userInfo,
+            let duration = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as?
+                TimeInterval),
+            let curve = (userInfo[UIKeyboardAnimationCurveUserInfoKey] as?
+                UInt)
+            else { return }
+        let animationOption = UIViewAnimationOptions.init(rawValue: curve)
+        
+        UIView.animate(
+            withDuration:  duration,
+            delay: 0.0,
+            options: animationOption,
+            animations: {
+                self.textViewBottomConstraint.constant = 0
+                self.view.layoutIfNeeded()
+        },
+            completion: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
