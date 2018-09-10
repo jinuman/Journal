@@ -151,4 +151,14 @@ class JournalTests: XCTestCase {
         // Verify
         expect(entries) == []
     }
+    
+    func testNumberOfEntries() {
+        // Setup
+        let journal = InMemoryJournal()
+        
+        // Verify
+        expect(journal.numberOfEntries) == 0
+        journal.add(Entry.today)
+        expect(journal.numberOfEntries) == 1
+    }
 }

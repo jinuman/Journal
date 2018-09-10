@@ -23,10 +23,10 @@ class EntryTests: XCTestCase {
     }
     
     func testEquality() {
+        // Setup
         let tempId = UUID()
         let tempDate = Date()
         let tempText = "hi"
-        // Setup
         let aEntry = Entry(id: tempId, createdAt: tempDate, text: tempText)
         let bEntry = Entry(id: tempId, createdAt: tempDate, text: tempText)
         
@@ -35,4 +35,5 @@ class EntryTests: XCTestCase {
         expect(aEntry) == bEntry
         expect(aEntry) != anotherEntry
     }
+    
 }
