@@ -154,6 +154,7 @@ class EntryViewController: UIViewController {
             textView.becomeFirstResponder()
             
             button.setTitle("저장하기", for: UIControlState.normal)
+            button.removeTarget(self, action: nil, for: .touchUpInside)
             button.addTarget(self,
                              action: #selector(saveEntry(_:)),
                              for: UIControlEvents.touchUpInside)
@@ -162,6 +163,7 @@ class EntryViewController: UIViewController {
             textView.resignFirstResponder()
             
             button.setTitle("수정하기", for: UIControlState.normal)
+            button.removeTarget(self, action: nil, for: .touchUpInside)
             button.addTarget(self,
                              action: #selector(editEntry(_:)),
                              for: UIControlEvents.touchUpInside)
