@@ -67,21 +67,18 @@ bracket : 괄호
 """
 
 class EntryViewController: UIViewController {
-    @IBOutlet weak var dateLabel: UILabel!
+    
     @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var button: UIButton!
     @IBOutlet weak var textViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var button: UIBarButtonItem!
     
     let journal: Journal = InMemoryJournal()
     private var editingEntry: Entry?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dateLabel.text = DateFormatter.entryDateFormatter.string(from: Date())
+        title = DateFormatter.entryDateFormatter.string(from: Date())
         textView.text = longText
-        button.addTarget(self,
-                         action: #selector(saveEntry(_:)),
-                         for: UIControlEvents.touchUpInside)
         
         NotificationCenter.default
             .addObserver(
@@ -129,7 +126,7 @@ class EntryViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        textView.becomeFirstResponder()
+        updateSubviews(for: true)
     }
 
     @objc func saveEntry(_ sender: Any) {
@@ -153,20 +150,16 @@ class EntryViewController: UIViewController {
             textView.isEditable = true
             textView.becomeFirstResponder()
             
-            button.setTitle("저장하기", for: UIControlState.normal)
-            button.removeTarget(self, action: nil, for: .touchUpInside)
-            button.addTarget(self,
-                             action: #selector(saveEntry(_:)),
-                             for: UIControlEvents.touchUpInside)
+            button.title = "저장하기"
+            button.target = self
+            button.action = #selector(saveEntry(_:))
         } else {
             textView.isEditable = false
             textView.resignFirstResponder()
             
-            button.setTitle("수정하기", for: UIControlState.normal)
-            button.removeTarget(self, action: nil, for: .touchUpInside)
-            button.addTarget(self,
-                             action: #selector(editEntry(_:)),
-                             for: UIControlEvents.touchUpInside)
+            button.title = "수정하기"
+            button.target = self
+            button.action = #selector(editEntry(_:))
         }
     }
 }
