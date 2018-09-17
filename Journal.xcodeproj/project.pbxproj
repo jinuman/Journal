@@ -18,6 +18,7 @@
 		36C5394C2139357A00872E2B /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C5394B2139357A00872E2B /* Journal.swift */; };
 		36C5395821393E5800872E2B /* JournalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C5395721393E5800872E2B /* JournalTests.swift */; };
 		36C539602139501D00872E2B /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C5395F2139501D00872E2B /* Identifiable.swift */; };
+		36FC215B2150001200870626 /* UIKit+Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FC215A2150001200870626 /* UIKit+Journal.swift */; };
 		F0C5614BA3DA04C9033FDF9D /* Pods_JournalTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42AA692621CB0A616DBEE377 /* Pods_JournalTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		36C5395721393E5800872E2B /* JournalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalTests.swift; sourceTree = "<group>"; };
 		36C5395921393E5800872E2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36C5395F2139501D00872E2B /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
+		36FC215A2150001200870626 /* UIKit+Journal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Journal.swift"; sourceTree = "<group>"; };
 		42AA692621CB0A616DBEE377 /* Pods_JournalTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JournalTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		561FA40B29042897AC8D3C0D /* Pods-JournalTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JournalTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JournalTests/Pods-JournalTests.release.xcconfig"; sourceTree = "<group>"; };
 		8F185F9CC19CC48A11DB5987 /* Pods-JournalTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JournalTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JournalTests/Pods-JournalTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			children = (
 				36577DC72121AE1500C7A645 /* AppDelegate.swift */,
 				36C5395F2139501D00872E2B /* Identifiable.swift */,
+				36FC215A2150001200870626 /* UIKit+Journal.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				36577DCA2121AE1500C7A645 /* EntryViewController.swift in Sources */,
 				36577DC82121AE1500C7A645 /* AppDelegate.swift in Sources */,
 				36C539602139501D00872E2B /* Identifiable.swift in Sources */,
+				36FC215B2150001200870626 /* UIKit+Journal.swift in Sources */,
 				36C5394C2139357A00872E2B /* Journal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

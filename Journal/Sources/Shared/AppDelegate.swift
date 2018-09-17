@@ -18,8 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let navigationController = window?.rootViewController as? UINavigationController {
             navigationController.navigationBar.prefersLargeTitles = true
             navigationController.navigationBar.barStyle = UIBarStyle.black
-            navigationController.navigationBar.barTintColor = UIColor.brown
-            navigationController.navigationBar.tintColor = UIColor.white
+            navigationController.navigationBar.tintColor = UIColor.white    // 버튼색 변경
+            
+            let bgImage = UIImage.gradientImage(with: [.gradientStart, .gradientEnd],
+                                                size: CGSize(width: UIScreen.main.bounds.size.width, height: 1))
+            navigationController.navigationBar.barTintColor = UIColor(patternImage: bgImage!)
         }
         
         return true
