@@ -10,6 +10,37 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Timeline View Controller-->
+        <scene sceneID="nwo-ck-KVn">
+            <objects>
+                <viewController id="Rof-5n-4HL" customClass="TimelineViewController" customModule="Journal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="y7t-aa-kSz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0u-g1-NrL">
+                                <rect key="frame" x="186" y="357.66666666666669" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="r0u-g1-NrL" firstAttribute="centerY" secondItem="y7t-aa-kSz" secondAttribute="centerY" id="FaN-nt-0tf"/>
+                            <constraint firstItem="r0u-g1-NrL" firstAttribute="centerX" secondItem="y7t-aa-kSz" secondAttribute="centerX" id="aiJ-Qj-npa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Hci-Kw-ZDS"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="n4A-Ek-8dD"/>
+                    <connections>
+                        <outlet property="entryCountLabel" destination="r0u-g1-NrL" id="qXQ-eK-VIf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KTm-JX-Esx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1089" y="118"/>
+        </scene>
         <!--Entry View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -46,7 +77,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1023.1884057971015" y="117.39130434782609"/>
+            <point key="canvasLocation" x="2061" y="117"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gum-ae-iwg">
@@ -59,7 +90,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="f8Y-G1-rq2"/>
+                        <segue destination="Rof-5n-4HL" kind="relationship" relationship="rootViewController" id="LH1-TS-aKo"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xE1-hJ-6PI" userLabel="First Responder" sceneMemberID="firstResponder"/>
