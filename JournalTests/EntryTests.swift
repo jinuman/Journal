@@ -32,8 +32,8 @@ class EntryTests: XCTestCase {
         
         let anotherEntry = Entry(id: UUID(), createdAt: tempDate, text: tempText)
         // Verify
-        expect(aEntry) == bEntry
-        expect(aEntry) != anotherEntry
+        XCTAssertEqual(aEntry, bEntry)
+        XCTAssertNotEqual(aEntry, anotherEntry)
     }
     
 }

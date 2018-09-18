@@ -5,6 +5,6 @@ inhibit_all_warnings!
   pod 'SnapKit'
   target :JournalTests do
     inherit! :search_paths
-    pod 'Nimble', '~> 7.0.0'
+    pod 'Nimble', '~> 7.1.0'
   end
 end 
