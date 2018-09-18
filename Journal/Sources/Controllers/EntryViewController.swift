@@ -84,34 +84,34 @@ class EntryViewController: UIViewController {
             .addObserver(
                 self,
                 selector: #selector(handleKeyboardAppearance(_:)),
-                name: NSNotification.Name.UIKeyboardWillShow,
+                name: UIResponder.keyboardWillShowNotification,
                 object: nil)
         
         NotificationCenter.default
             .addObserver(
                 self,
                 selector: #selector(handleKeyboardAppearance(_:)),
-                name: NSNotification.Name.UIKeyboardWillHide,
+                name: UIResponder.keyboardWillHideNotification,
                 object: nil)
     }
     
     @objc func handleKeyboardAppearance(_ note: Notification) {
         guard
             let userInfo = note.userInfo,
-            let keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as?
+            let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as?
                 NSValue),
-            let duration = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as?
+            let duration = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as?
                 TimeInterval),
-            let curve = (userInfo[UIKeyboardAnimationCurveUserInfoKey] as?
+            let curve = (userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as?
                 UInt)
             else { return }
         
         let isKeyboardWillShow: Bool = note.name ==
-            Notification.Name.UIKeyboardWillShow
+            UIResponder.keyboardWillShowNotification
         let keyboardHeight = isKeyboardWillShow
             ? keyboardFrame.cgRectValue.height
             : 0
-        let animationOption = UIViewAnimationOptions.init(rawValue: curve)
+        let animationOption = UIView.AnimationOptions.init(rawValue: curve)
         
         UIView.animate(
             withDuration:  duration,

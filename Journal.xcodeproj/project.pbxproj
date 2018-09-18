@@ -245,9 +245,11 @@
 				TargetAttributes = {
 					36577DC32121AE1500C7A645 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 					};
 					36C5395421393E5800872E2B = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 						TestTargetID = 36577DC32121AE1500C7A645;
 					};
 				};
@@ -546,7 +548,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jinuman.Journal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -564,7 +566,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jinuman.Journal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -583,7 +585,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jinuman.JournalTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Journal.app/Journal";
 			};
@@ -603,7 +605,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jinuman.JournalTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Journal.app/Journal";
 			};
