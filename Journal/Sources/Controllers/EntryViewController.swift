@@ -67,54 +67,51 @@ bracket : 괄호
 """
 
 class EntryViewController: UIViewController {
-    @IBOutlet weak var dateLabel: UILabel!
+    
     @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var button: UIButton!
     @IBOutlet weak var textViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var button: UIBarButtonItem!
     
     let journal: Journal = InMemoryJournal()
     private var editingEntry: Entry?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dateLabel.text = DateFormatter.entryDateFormatter.string(from: Date())
+        title = DateFormatter.entryDateFormatter.string(from: Date())
         textView.text = longText
-        button.addTarget(self,
-                         action: #selector(saveEntry(_:)),
-                         for: UIControlEvents.touchUpInside)
         
         NotificationCenter.default
             .addObserver(
                 self,
                 selector: #selector(handleKeyboardAppearance(_:)),
-                name: NSNotification.Name.UIKeyboardWillShow,
+                name: UIResponder.keyboardWillShowNotification,
                 object: nil)
         
         NotificationCenter.default
             .addObserver(
                 self,
                 selector: #selector(handleKeyboardAppearance(_:)),
-                name: NSNotification.Name.UIKeyboardWillHide,
+                name: UIResponder.keyboardWillHideNotification,
                 object: nil)
     }
     
     @objc func handleKeyboardAppearance(_ note: Notification) {
         guard
             let userInfo = note.userInfo,
-            let keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as?
+            let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as?
                 NSValue),
-            let duration = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as?
+            let duration = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as?
                 TimeInterval),
-            let curve = (userInfo[UIKeyboardAnimationCurveUserInfoKey] as?
+            let curve = (userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as?
                 UInt)
             else { return }
         
         let isKeyboardWillShow: Bool = note.name ==
-            Notification.Name.UIKeyboardWillShow
+            UIResponder.keyboardWillShowNotification
         let keyboardHeight = isKeyboardWillShow
             ? keyboardFrame.cgRectValue.height
             : 0
-        let animationOption = UIViewAnimationOptions.init(rawValue: curve)
+        let animationOption = UIView.AnimationOptions.init(rawValue: curve)
         
         UIView.animate(
             withDuration:  duration,
@@ -129,7 +126,7 @@ class EntryViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        textView.becomeFirstResponder()
+        updateSubviews(for: true)
     }
 
     @objc func saveEntry(_ sender: Any) {
@@ -149,25 +146,11 @@ class EntryViewController: UIViewController {
     }
     
     fileprivate func updateSubviews(for isEditing: Bool) {
-        if isEditing {
-            textView.isEditable = true
-            textView.becomeFirstResponder()
-            
-            button.setTitle("저장하기", for: UIControlState.normal)
-            button.removeTarget(self, action: nil, for: .touchUpInside)
-            button.addTarget(self,
-                             action: #selector(saveEntry(_:)),
-                             for: UIControlEvents.touchUpInside)
-        } else {
-            textView.isEditable = false
-            textView.resignFirstResponder()
-            
-            button.setTitle("수정하기", for: UIControlState.normal)
-            button.removeTarget(self, action: nil, for: .touchUpInside)
-            button.addTarget(self,
-                             action: #selector(editEntry(_:)),
-                             for: UIControlEvents.touchUpInside)
-        }
+        button.image = isEditing ? #imageLiteral(resourceName: "baseline_save_white_36pt") : #imageLiteral(resourceName: "baseline_edit_white_36pt")
+        button.target = self
+        button.action = isEditing ? #selector(saveEntry(_:)) : #selector(editEntry(_:))
+        textView.isEditable = isEditing
+        _ = isEditing ? textView.becomeFirstResponder() : textView.resignFirstResponder()
     }
 }
 

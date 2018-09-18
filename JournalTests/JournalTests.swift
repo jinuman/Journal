@@ -149,6 +149,7 @@ class JournalTests: XCTestCase {
         let entries = journal.recentEntries(max: -10)
         
         // Verify
+//        XCTAssertEqual(entries, [])
         expect(entries) == []
     }
     
@@ -157,8 +158,10 @@ class JournalTests: XCTestCase {
         let journal = InMemoryJournal()
         
         // Verify
+//        XCTAssertEqual(journal.numberOfEntries, 0)
         expect(journal.numberOfEntries) == 0
         journal.add(Entry.today)
+//        XCTAssertEqual(journal.numberOfEntries, 1)
         expect(journal.numberOfEntries) == 1
     }
 }
