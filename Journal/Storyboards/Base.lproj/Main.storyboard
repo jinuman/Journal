@@ -32,7 +32,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Hci-Kw-ZDS"/>
                     </view>
-                    <navigationItem key="navigationItem" id="n4A-Ek-8dD"/>
+                    <navigationItem key="navigationItem" id="n4A-Ek-8dD">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="3Oc-P3-W3M">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" id="f62-0c-kke"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="entryCountLabel" destination="r0u-g1-NrL" id="qXQ-eK-VIf"/>
                     </connections>

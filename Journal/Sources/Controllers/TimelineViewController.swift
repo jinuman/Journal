@@ -14,15 +14,13 @@ class TimelineViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let df = DateFormatter()
-        df.dateFormat = "yyyy년 MM월 dd일 EEE HH:mm:ss"
-        title = df.string(from: Date())
+        title = "나만의 일기장"
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let journal = InMemoryJournal(entries: [
+        let journal = InMemoryEntryRepository(entries: [
             Entry.init(text: "일기 1"),
             Entry.init(text: "일기 2"),
             Entry.init(text: "일기 3")

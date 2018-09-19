@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol Journal {
+protocol EntryRepository {
     var numberOfEntries: Int { get }
     
     func add(_ entry: Entry)
@@ -18,7 +18,7 @@ protocol Journal {
     func recentEntries(max: Int) -> [Entry]
 }
 
-class InMemoryJournal: Journal {
+class InMemoryEntryRepository: EntryRepository {
     private var entries: [UUID: Entry]
     
     init(entries: [Entry] = []) {   // 인스턴스 생성시 파라미터를 줘도 되고 안줘도 되게 하기위해
