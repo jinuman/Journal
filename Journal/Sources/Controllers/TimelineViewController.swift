@@ -17,14 +17,11 @@ class TimelineViewController: UIViewController {
         title = "나만의 일기장"
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        let journal = InMemoryEntryRepository(entries: [
-            Entry.init(text: "일기 1"),
-            Entry.init(text: "일기 2"),
-            Entry.init(text: "일기 3")
-            ])
+        let journal = InMemoryEntryRepository.shared
+        
         entryCountLabel.text = journal.numberOfEntries > 0
             ? "엔트리 개수: \(journal.numberOfEntries)"
             : "엔트리 없음"

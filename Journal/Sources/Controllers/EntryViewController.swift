@@ -72,7 +72,7 @@ class EntryViewController: UIViewController {
     @IBOutlet weak var textViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var button: UIBarButtonItem!
     
-    let journal: EntryRepository = InMemoryEntryRepository()
+    let journal: EntryRepository = InMemoryEntryRepository.shared
     private var editingEntry: Entry?
     
     override func viewDidLoad() {

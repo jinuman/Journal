@@ -31,6 +31,11 @@ class InMemoryEntryRepository: EntryRepository {
         self.entries = result
     }
     
+    static var shared: InMemoryEntryRepository = {
+        let repository = InMemoryEntryRepository()
+        return repository
+    }()
+    
     var numberOfEntries: Int {
         return entries.count  
     }
@@ -40,7 +45,7 @@ class InMemoryEntryRepository: EntryRepository {
     }
     
     func update(_ entry: Entry) {
-//        entries[entry.id] = entry
+        //        entries[entry.id] = entry
     }
     
     func remove(_ entry: Entry) {
