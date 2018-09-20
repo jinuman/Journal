@@ -13,7 +13,7 @@
         <!--Timeline View Controller-->
         <scene sceneID="nwo-ck-KVn">
             <objects>
-                <viewController id="Rof-5n-4HL" customClass="TimelineViewController" customModule="Journal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TimelineViewController" id="Rof-5n-4HL" customClass="TimelineViewController" customModule="Journal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y7t-aa-kSz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
