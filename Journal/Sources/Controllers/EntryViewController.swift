@@ -72,7 +72,10 @@ class EntryViewController: UIViewController {
     @IBOutlet weak var textViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var button: UIBarButtonItem!
     
-    let journal: Journal = InMemoryJournal()
+    var environment: Environment!
+
+    var journal: EntryRepository { return environment.entryRepository }
+
     private var editingEntry: Entry?
     
     override func viewDidLoad() {
@@ -146,7 +149,7 @@ class EntryViewController: UIViewController {
     }
     
     fileprivate func updateSubviews(for isEditing: Bool) {
-        button.image = isEditing ? #imageLiteral(resourceName: "baseline_save_white_36pt") : #imageLiteral(resourceName: "baseline_edit_white_36pt")
+        button.image = isEditing ? #imageLiteral(resourceName: "baseline_save_white_24pt") : #imageLiteral(resourceName: "baseline_edit_white_24pt")
         button.target = self
         button.action = isEditing ? #selector(saveEntry(_:)) : #selector(editEntry(_:))
         textView.isEditable = isEditing

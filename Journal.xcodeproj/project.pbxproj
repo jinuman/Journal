@@ -14,10 +14,13 @@
 		36577DCD2121AE1500C7A645 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36577DCB2121AE1500C7A645 /* Main.storyboard */; };
 		36577DCF2121AE1600C7A645 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36577DCE2121AE1600C7A645 /* Assets.xcassets */; };
 		36577DD22121AE1600C7A645 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36577DD02121AE1600C7A645 /* LaunchScreen.storyboard */; };
+		3675B2A921527FC400424356 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3675B2A821527FC400424356 /* Environment.swift */; };
+		369102C22153BA7800B5215B /* TimelineViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369102C12153BA7800B5215B /* TimelineViewControllerTests.swift */; };
 		36C5394A213930DC00872E2B /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C53949213930DC00872E2B /* Entry.swift */; };
-		36C5394C2139357A00872E2B /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C5394B2139357A00872E2B /* Journal.swift */; };
+		36C5394C2139357A00872E2B /* EntryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C5394B2139357A00872E2B /* EntryRepository.swift */; };
 		36C5395821393E5800872E2B /* JournalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C5395721393E5800872E2B /* JournalTests.swift */; };
 		36C539602139501D00872E2B /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C5395F2139501D00872E2B /* Identifiable.swift */; };
+		36E83EAE21515A8B00AEB8D2 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E83EAD21515A8B00AEB8D2 /* TimelineViewController.swift */; };
 		36FC215B2150001200870626 /* UIKit+Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FC215A2150001200870626 /* UIKit+Journal.swift */; };
 		F0C5614BA3DA04C9033FDF9D /* Pods_JournalTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42AA692621CB0A616DBEE377 /* Pods_JournalTests.framework */; };
 /* End PBXBuildFile section */
@@ -44,12 +47,15 @@
 		36577DCE2121AE1600C7A645 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		36577DD12121AE1600C7A645 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		36577DD32121AE1600C7A645 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3675B2A821527FC400424356 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		369102C12153BA7800B5215B /* TimelineViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewControllerTests.swift; sourceTree = "<group>"; };
 		36C53949213930DC00872E2B /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
-		36C5394B2139357A00872E2B /* Journal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
+		36C5394B2139357A00872E2B /* EntryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryRepository.swift; sourceTree = "<group>"; };
 		36C5395521393E5800872E2B /* JournalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JournalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		36C5395721393E5800872E2B /* JournalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalTests.swift; sourceTree = "<group>"; };
 		36C5395921393E5800872E2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36C5395F2139501D00872E2B /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
+		36E83EAD21515A8B00AEB8D2 /* TimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		36FC215A2150001200870626 /* UIKit+Journal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Journal.swift"; sourceTree = "<group>"; };
 		42AA692621CB0A616DBEE377 /* Pods_JournalTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JournalTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		561FA40B29042897AC8D3C0D /* Pods-JournalTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JournalTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JournalTests/Pods-JournalTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -149,7 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				36C53949213930DC00872E2B /* Entry.swift */,
-				36C5394B2139357A00872E2B /* Journal.swift */,
+				36C5394B2139357A00872E2B /* EntryRepository.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -160,6 +166,7 @@
 				36577DC72121AE1500C7A645 /* AppDelegate.swift */,
 				36C5395F2139501D00872E2B /* Identifiable.swift */,
 				36FC215A2150001200870626 /* UIKit+Journal.swift */,
+				3675B2A821527FC400424356 /* Environment.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -168,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				36577DC92121AE1500C7A645 /* EntryViewController.swift */,
+				36E83EAD21515A8B00AEB8D2 /* TimelineViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -178,6 +186,7 @@
 				36C5395721393E5800872E2B /* JournalTests.swift */,
 				36C5395921393E5800872E2B /* Info.plist */,
 				36348FE7213FD95600136A0D /* EntryTests.swift */,
+				369102C12153BA7800B5215B /* TimelineViewControllerTests.swift */,
 			);
 			path = JournalTests;
 			sourceTree = "<group>";
@@ -374,11 +383,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				36C5394A213930DC00872E2B /* Entry.swift in Sources */,
+				3675B2A921527FC400424356 /* Environment.swift in Sources */,
 				36577DCA2121AE1500C7A645 /* EntryViewController.swift in Sources */,
 				36577DC82121AE1500C7A645 /* AppDelegate.swift in Sources */,
 				36C539602139501D00872E2B /* Identifiable.swift in Sources */,
+				36E83EAE21515A8B00AEB8D2 /* TimelineViewController.swift in Sources */,
 				36FC215B2150001200870626 /* UIKit+Journal.swift in Sources */,
-				36C5394C2139357A00872E2B /* Journal.swift in Sources */,
+				36C5394C2139357A00872E2B /* EntryRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,6 +397,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				369102C22153BA7800B5215B /* TimelineViewControllerTests.swift in Sources */,
 				36348FE8213FD95600136A0D /* EntryTests.swift in Sources */,
 				36C5395821393E5800872E2B /* JournalTests.swift in Sources */,
 			);
