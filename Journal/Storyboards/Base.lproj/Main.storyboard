@@ -18,17 +18,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0u-g1-NrL">
-                                <rect key="frame" x="186" y="357.66666666666669" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gqq-dk-mpS">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EntryTableViewCell" textLabel="Tcg-rG-t13" detailTextLabel="QjL-Yt-jHz" style="IBUITableViewCellStyleSubtitle" id="HKH-5x-rNE">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HKH-5x-rNE" id="HUZ-3M-8rq">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Tcg-rG-t13">
+                                                    <rect key="frame" x="20.000000000000004" y="5" width="33.333333333333336" height="20.333333333333332"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QjL-Yt-jHz">
+                                                    <rect key="frame" x="19.999999999999996" y="25.333333333333332" width="43.666666666666664" height="14.333333333333334"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="r0u-g1-NrL" firstAttribute="centerY" secondItem="y7t-aa-kSz" secondAttribute="centerY" id="FaN-nt-0tf"/>
-                            <constraint firstItem="r0u-g1-NrL" firstAttribute="centerX" secondItem="y7t-aa-kSz" secondAttribute="centerX" id="aiJ-Qj-npa"/>
+                            <constraint firstItem="gqq-dk-mpS" firstAttribute="trailing" secondItem="Hci-Kw-ZDS" secondAttribute="trailing" id="5Dd-Wm-f4G"/>
+                            <constraint firstItem="gqq-dk-mpS" firstAttribute="leading" secondItem="Hci-Kw-ZDS" secondAttribute="leading" id="N0R-Gh-0QK"/>
+                            <constraint firstItem="gqq-dk-mpS" firstAttribute="top" secondItem="y7t-aa-kSz" secondAttribute="top" id="Xr7-97-KMb"/>
+                            <constraint firstItem="gqq-dk-mpS" firstAttribute="bottom" secondItem="Hci-Kw-ZDS" secondAttribute="bottom" id="ilD-Gq-a2Z"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Hci-Kw-ZDS"/>
                     </view>
@@ -40,12 +66,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="entryCountLabel" destination="r0u-g1-NrL" id="qXQ-eK-VIf"/>
+                        <outlet property="tableview" destination="gqq-dk-mpS" id="yOT-g2-DXF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KTm-JX-Esx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1089" y="118"/>
+            <point key="canvasLocation" x="1088.4057971014493" y="117.39130434782609"/>
         </scene>
         <!--Entry View Controller-->
         <scene sceneID="tne-QT-ifu">

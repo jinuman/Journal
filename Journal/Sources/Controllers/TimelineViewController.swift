@@ -9,7 +9,7 @@
 import UIKit
 
 class TimelineViewController: UIViewController {
-    @IBOutlet weak var entryCountLabel: UILabel!
+    @IBOutlet weak var tableview: UITableView!
     
     var environment: Environment!   // 이게 없으면 앱이 터져도된다.
     
@@ -29,15 +29,25 @@ class TimelineViewController: UIViewController {
         super.viewDidLoad()
         
         title = "내 손안의 일기장"
+        tableview.dataSource = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+    }
+}
+
+extension TimelineViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let journalRepository = environment.entryRepository
+        return journalRepository.numberOfEntries
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let tableViewCell = tableview.dequeueReusableCell(withIdentifier: "EntryTableViewCell", for: indexPath)
+        tableViewCell.textLabel?.text = "row: \(indexPath.row)"
+        tableViewCell.detailTextLabel?.text = "section: \(indexPath.section)"
         
-        entryCountLabel.text = journalRepository.numberOfEntries > 0
-            ? "엔트리 개수: \(journalRepository.numberOfEntries)"
-            : "엔트리 없음"
+        return tableViewCell
     }
 }
