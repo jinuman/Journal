@@ -12,6 +12,7 @@ class TimelineViewController: UIViewController {
     @IBOutlet weak var tableview: UITableView!
     
     var environment: Environment!   // if nil : error!
+    private var entries: [Entry] = []
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let identifier = segue.identifier else { return }
@@ -34,6 +35,9 @@ class TimelineViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        entries = environment.entryRepository.recentEntries(max: environment.entryRepository.numberOfEntries)
+        tableview.reloadData()
     }
 }
 
@@ -45,8 +49,10 @@ extension TimelineViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let tableViewCell = tableview.dequeueReusableCell(withIdentifier: "EntryTableViewCell", for: indexPath)
-        tableViewCell.textLabel?.text = "row: \(indexPath.row)"
-        tableViewCell.detailTextLabel?.text = "section: \(indexPath.section)"
+        
+        let entry = entries[indexPath.row]
+        tableViewCell.textLabel?.text = entry.text
+        tableViewCell.detailTextLabel?.text = DateFormatter.entryDateFormatter.string(from: entry.createdAt)
         
         return tableViewCell
     }

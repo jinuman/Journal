@@ -38,9 +38,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let navViewController = window?.rootViewController as? UINavigationController,
             let timelineViewController = navViewController.topViewController as? TimelineViewController
             else { return }
+        
         let repo = InMemoryEntryRepository(entries: [
-            Entry.init(text: "일기 1"),
-            Entry.init(text: "일기 2")
+            Entry(text: "1st Journal"),
+            Entry(text: "2nd Journal"),
+            Entry(text: "3rd Journal")
             ]
         )
         timelineViewController.environment = Environment(entryRepository: repo)
