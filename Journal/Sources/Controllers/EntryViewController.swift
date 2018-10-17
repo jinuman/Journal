@@ -26,12 +26,14 @@ class EntryViewController: UIViewController {
 
     var journal: EntryRepository { return environment.entryRepository }
 
-    private var editingEntry: Entry?
+    var editingEntry: Entry?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = DateFormatter.entryDateFormatter.string(from: Date())
-        textView.text = ""
+        
+        textView.text = editingEntry?.text
+        let date: Date = editingEntry?.createdAt ?? Date()
+        title = DateFormatter.entryDateFormatter.string(from: date)
         
         NotificationCenter.default
             .addObserver(

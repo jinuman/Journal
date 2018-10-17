@@ -20,6 +20,15 @@ class TimelineViewController: UIViewController {
         case "addEntry":
             let entryVC = segue.destination as? EntryViewController
             entryVC?.environment = environment
+        
+        case "showEntry":
+            if
+                let entryVC = segue.destination as? EntryViewController,
+                let selectedIndexPath = tableview.indexPathForSelectedRow {
+                
+                entryVC.environment = environment
+                entryVC.editingEntry = entries[selectedIndexPath.row]
+            }
             
         default:
             break
