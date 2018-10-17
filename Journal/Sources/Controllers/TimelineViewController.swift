@@ -11,7 +11,7 @@ import UIKit
 class TimelineViewController: UIViewController {
     @IBOutlet weak var tableview: UITableView!
     
-    var environment: Environment!   // 이게 없으면 앱이 터져도된다.
+    var environment: Environment!   // if nil : error!
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let identifier = segue.identifier else { return }

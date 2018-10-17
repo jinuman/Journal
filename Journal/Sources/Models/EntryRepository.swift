@@ -21,7 +21,7 @@ protocol EntryRepository {
 class InMemoryEntryRepository: EntryRepository {
     private var entries: [UUID: Entry]
     
-    init(entries: [Entry] = []) {   // 인스턴스 생성시 파라미터를 줘도 되고 안줘도 되게 하기위해
+    init(entries: [Entry] = []) {   
         var result: [UUID: Entry] = [:]
         
         entries.forEach { entry in
@@ -62,7 +62,7 @@ class InMemoryEntryRepository: EntryRepository {
         let result = entries
             .values
             .sorted { $0.createdAt > $1.createdAt  }
-            .prefix(max)    // max 값까지 자른다
+            .prefix(max)
         
         return Array(result)
     }
