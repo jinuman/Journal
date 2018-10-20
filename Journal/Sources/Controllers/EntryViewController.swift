@@ -25,8 +25,10 @@ class EntryViewController: UIViewController {
     var environment: Environment!
 
     var journal: EntryRepository { return environment.entryRepository }
-
     var editingEntry: Entry?
+    var hasEntry: Bool {
+        return editingEntry != nil
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +36,8 @@ class EntryViewController: UIViewController {
         textView.text = editingEntry?.text
         let date: Date = editingEntry?.createdAt ?? Date()
         title = DateFormatter.entryDateFormatter.string(from: date)
+        
+        updateSubviews(for: !hasEntry)
         
         NotificationCenter.default
             .addObserver(
@@ -79,9 +83,15 @@ class EntryViewController: UIViewController {
             completion: nil)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        updateSubviews(for: true)
+        if !hasEntry {
+            textView.becomeFirstResponder()
+        }
     }
 
     @objc func saveEntry(_ sender: Any) {
@@ -94,10 +104,12 @@ class EntryViewController: UIViewController {
             editingEntry = entry
         }
         updateSubviews(for: false)
+        textView.resignFirstResponder()
     }
     
     @objc func editEntry(_ sender: Any) {
         updateSubviews(for: true)
+        textView.becomeFirstResponder()
     }
     
     fileprivate func updateSubviews(for isEditing: Bool) {
@@ -105,7 +117,6 @@ class EntryViewController: UIViewController {
         button.target = self
         button.action = isEditing ? #selector(saveEntry(_:)) : #selector(editEntry(_:))
         textView.isEditable = isEditing
-        _ = isEditing ? textView.becomeFirstResponder() : textView.resignFirstResponder()
     }
 }
 

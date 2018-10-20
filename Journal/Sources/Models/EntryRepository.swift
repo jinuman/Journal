@@ -45,7 +45,7 @@ class InMemoryEntryRepository: EntryRepository {
     }
     
     func update(_ entry: Entry) {
-        //        entries[entry.id] = entry
+//        entries[entry.id] = entry
     }
     
     func remove(_ entry: Entry) {
