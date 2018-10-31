@@ -102,7 +102,14 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="EnT-HA-qb3">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="dic-EP-PFs"/>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" id="dic-EP-PFs"/>
+                            <barButtonItem title="Item" image="baseline_delete_white_24pt" id="5EA-Uj-EnO">
+                                <connections>
+                                    <action selector="removeEntry:" destination="BYZ-38-t0r" id="MH6-iS-7XR"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="button" destination="dic-EP-PFs" id="ecl-5W-5lS"/>
@@ -133,6 +140,9 @@
             <point key="canvasLocation" x="115.94202898550725" y="117.39130434782609"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="baseline_delete_white_24pt" width="24" height="24"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="aAF-9H-7Bz"/>
     </inferredMetricsTieBreakers>

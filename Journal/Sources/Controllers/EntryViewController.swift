@@ -16,6 +16,10 @@ extension DateFormatter {
     }()
 }
 
+protocol EntryViewControllerDelegate: class {
+    func didRemoveEntry(_ entry: Entry)
+}
+
 class EntryViewController: UIViewController {
     
     @IBOutlet weak var textView: UITextView!
@@ -23,6 +27,7 @@ class EntryViewController: UIViewController {
     @IBOutlet weak var button: UIBarButtonItem!
     
     var environment: Environment!
+    weak var delegate: EntryViewControllerDelegate?
 
     var journal: EntryRepository { return environment.entryRepository }
     var editingEntry: Entry?
@@ -110,6 +115,14 @@ class EntryViewController: UIViewController {
     @objc func editEntry(_ sender: Any) {
         updateSubviews(for: true)
         textView.becomeFirstResponder()
+    }
+    
+    @IBAction func removeEntry(_ sender: Any) {
+        guard let entryToRemove = editingEntry else { return }
+        environment.entryRepository.remove(entryToRemove)
+        editingEntry = nil
+        
+        delegate?.didRemoveEntry(entryToRemove)
     }
     
     fileprivate func updateSubviews(for isEditing: Bool) {
