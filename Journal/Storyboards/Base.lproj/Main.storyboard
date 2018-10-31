@@ -113,6 +113,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="button" destination="dic-EP-PFs" id="ecl-5W-5lS"/>
+                        <outlet property="removeButton" destination="5EA-Uj-EnO" id="8RI-Ts-Xn7"/>
                         <outlet property="textView" destination="uX0-Vh-2fZ" id="Bv5-FY-gAV"/>
                         <outlet property="textViewBottomConstraint" destination="C4V-oN-K9k" id="6Vn-rP-maS"/>
                     </connections>

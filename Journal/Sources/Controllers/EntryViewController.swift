@@ -25,6 +25,7 @@ class EntryViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var textViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var button: UIBarButtonItem!
+    @IBOutlet weak var removeButton: UIBarButtonItem!
     
     var environment: Environment!
     weak var delegate: EntryViewControllerDelegate?
@@ -130,6 +131,7 @@ class EntryViewController: UIViewController {
         button.target = self
         button.action = isEditing ? #selector(saveEntry(_:)) : #selector(editEntry(_:))
         textView.isEditable = isEditing
+        removeButton.isEnabled = hasEntry
     }
 }
 
