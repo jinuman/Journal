@@ -117,13 +117,28 @@ class EntryViewController: UIViewController {
         updateSubviews(for: true)
         textView.becomeFirstResponder()
     }
-    
+
     @IBAction func removeEntry(_ sender: Any) {
         guard let entryToRemove = editingEntry else { return }
-        environment.entryRepository.remove(entryToRemove)
-        editingEntry = nil
+        let alertController = UIAlertController(title: "이 일기를 삭제하시겠습니까?",
+                                                message: "이 작업은 되돌릴 수 없습니다.",
+                                                preferredStyle: .alert)
+        let removeAction = UIAlertAction(title: "확인",
+                                         style: .destructive) { (_) in
+                                            self.environment.entryRepository.remove(entryToRemove)
+                                            self.editingEntry = nil
+                                            
+                                            self.delegate?.didRemoveEntry(entryToRemove)
+        }
         
-        delegate?.didRemoveEntry(entryToRemove)
+        let cancelAction = UIAlertAction(title: "취소",
+                                         style: .cancel,
+                                         handler: nil)
+            
+        alertController.addAction(removeAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
+        
     }
     
     fileprivate func updateSubviews(for isEditing: Bool) {
