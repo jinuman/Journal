@@ -38,8 +38,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let navViewController = window?.rootViewController as? UINavigationController,
             let timelineViewController = navViewController.topViewController as? TimelineViewController
             else { return }
-        let repo = InMemoryEntryRepository(entries: [])
-        timelineViewController.environment = Environment(entryRepository: repo)
+        
+        let entries: [Entry] = (1...31).map { number in
+            let entryText = "Journal day \(number) :)"
+            return Entry(text: entryText)
+        }
+        let entryRepo: InMemoryEntryRepository = InMemoryEntryRepository(entries: entries)
+        timelineViewController.environment = Environment(entryRepository: entryRepo)
     }
     
 }
